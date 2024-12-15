@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+    "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "plantuml.includepaths": [
+      "../Documentation/DoxygenCreator"
+    ],
+    "plantuml.jar": "./Documentation/DoxygenCreator/plantuml.jar",
+    "files.trimTrailingWhitespace": true,
+    "[markdown]": {
+      "files.trimTrailingWhitespace": false
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "[json]": {
+      "files.insertFinalNewline": false,
+      "files.trimFinalNewlines": false,
+    },
+    "[python]": {
+      "editor.detectIdentation": false,
+      "editor.insertSpaces": true,
+      "editor.tabSize": 4
+    },
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.ignoreLimitWarning": true,
+  }
+}

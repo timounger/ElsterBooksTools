@@ -1,0 +1,14 @@
+# General
+*.log
+*.pyc
+*.settings
+*.env
+
+# Source
+LibreOfficePortable_*_MultilingualStandard.paf.exe
+LibreOfficePortable
+LibreOfficePortable.zip
+Tools
+
+# Documentation
+/Documentation/Installation/PackageInfos.xlsx
