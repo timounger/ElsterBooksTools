@@ -29,6 +29,7 @@ LIBREOFFICE_FOLDER = "LibreOfficePortable"
 
 I_TIMEOUT = 2  # timeout download Libre Office
 
+B_HARD_CLEAN = False  # addition clean unused data
 
 def download_libre_office() -> None:
     """!
@@ -70,31 +71,33 @@ def edit_portable():
         # delete folder names and files types
         l_delete_folder = ["updates", "tmp", "temp", "cache"]
         l_delete_file_types = [".log", ".status"] + [".log", ".status"]
-        l_delete_file_types += [".py", "*.png", "*.svg"]
+        if B_HARD_CLEAN:
+            l_delete_file_types += [".py", "*.png", "*.svg"]
         l_delete_type = []
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\AppInfo")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\DefaultData")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Fonts")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Java")
+        if B_HARD_CLEAN:
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\AppInfo")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\DefaultData")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Fonts")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Java")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\gallery")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\autotext")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\Scripts\python")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\config")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\theme_definitions")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\filter")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\shell")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\python-core-3.9.20")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\classes")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\resource")
+        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\extensions")
+        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\autocorr")
+        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\template")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Readme.txt")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\Manual")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\help")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\readmes")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\autocorr")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\extensions")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\template")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\gallery")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\autotext")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\Scripts\python")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\basic\Template")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\basic\Tutorials")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\config")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\theme_definitions")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\filter")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\shell")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\python-core-3.9.20")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\classes")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\resource")
+        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\help")
+        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\readmes")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\LibreOffice_24.8.3.2_Win_x86.msi")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\CREDITS.fodt")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\extra_languages_removed.txt")
@@ -111,7 +114,10 @@ def edit_portable():
         user_setting_file = "registrymodifications.xcu"
         new_dir = f"{LIBREOFFICE_FOLDER}/Data/settings/user"
         user_setting_file_location = f"{new_dir}/{user_setting_file}"
-        os.makedirs(new_dir)
+        if not os.path.exists(new_dir):
+            os.makedirs(new_dir)
+        if os.path.exists(user_setting_file_location):
+            os.remove(user_setting_file_location)
         shutil.copy(user_setting_file, user_setting_file_location)
     else:
         log.info(f"Folder not exists %s.", LIBREOFFICE_FOLDER)
@@ -130,7 +136,7 @@ def zip_folder(folder_path, output_zip):
 def create_libre_office_portable():
     download_libre_office()
     edit_portable()
-    zip_folder(LIBREOFFICE_FOLDER, f"{LIBREOFFICE_FOLDER}.zip")
+    #zip_folder(LIBREOFFICE_FOLDER, f"{LIBREOFFICE_FOLDER}.zip")
     log.info("Finished!")
 
 
