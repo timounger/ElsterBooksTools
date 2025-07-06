@@ -17,6 +17,7 @@ Konvertiert Excel Dokumente nach PDFA-3b.
 - Version: 24.8.2
 
 Modifikationen:
+
 - Installation mit: Remove Extra Languages
 - Automatische Aktualisierung deaktiviert
 - Export-Einstellungen in `LibreOffice Calc`:
@@ -29,8 +30,8 @@ Modifikationen:
 
 CMD Befehle zur revisionssicheren Dokumentenablage.
 
-- Download: https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/PortableGit-2.47.1-64-bit.7z.exe
-- Version: v2.47.1
+- Download: https://github.com/git-for-windows/git/releases/download/v2.50.0.windows.2/PortableGit-2.50.0.2-64-bit.7z.exe
+- Version: v2.50.0
 
 ### PLZ
 
@@ -38,13 +39,6 @@ JSON Export mit Ortschaftsdaten um aus der PLZ den Ortsnamen zu generieren.
 
 - Download: https://dev.ratopi.de/opengeodb/DE.tab.json
 - Version: Stand 10/2024
-
-### Poppler
-
-Poppler rendert PDF-Dokumente in Bild Formate.
-
-- Repo: https://github.com/oschwartz10612/poppler-windows
-- Version: Release 24.08.0-0
 
 ### Tesseract
 
