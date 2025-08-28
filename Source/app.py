@@ -21,7 +21,7 @@ log = logging.getLogger(__title__)
 log = logging.getLogger(__title__)
 init_console_logging(logging.INFO)
 
-LIBRE_OFFICE_VERSION = "24.8.2"
+LIBRE_OFFICE_VERSION = "25.2.3"
 LIBREOFFICE_FILE_NAME = f"LibreOfficePortable_{LIBRE_OFFICE_VERSION}_MultilingualStandard.paf.exe"
 LIBREOFFICE_DOWNLOAD_URL = f"http://download.documentfoundation.org/libreoffice/portable/{LIBRE_OFFICE_VERSION}/{LIBREOFFICE_FILE_NAME}"
 
@@ -86,7 +86,7 @@ def edit_portable():
             l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\theme_definitions")
             l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\filter")
             l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\shell")
-            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\python-core-3.9.20")
+            l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\python-core-3.10.17")
             l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\classes")
             l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\program\resource")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\extensions")
@@ -98,7 +98,7 @@ def edit_portable():
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\share\basic\Tutorials")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\help")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\readmes")
-        l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\LibreOffice_24.8.3.2_Win_x86.msi")
+        #l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\LibreOffice_24.8.3.2_Win_x86.msi")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\CREDITS.fodt")
         l_delete_type.append(f"{LIBREOFFICE_FOLDER}\App\libreoffice\extra_languages_removed.txt")
         for root, dirs, files in os.walk(LIBREOFFICE_FOLDER, topdown=False):

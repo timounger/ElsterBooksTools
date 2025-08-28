@@ -13,8 +13,8 @@ Folgende Tools werden zur Verfügung gestellt:
 
 Konvertiert Excel Dokumente nach PDFA-3b.
 
-- Download: http://download.documentfoundation.org/libreoffice/portable/24.8.2/LibreOfficePortable_24.8.2_MultilingualStandard.paf.exe
-- Version: 24.8.2
+- Download: http://download.documentfoundation.org/libreoffice/portable/25.2.3/LibreOfficePortable_25.2.3_MultilingualStandard.paf.exe
+- Version: 25.2.3
 
 Modifikationen:
 
@@ -30,8 +30,8 @@ Modifikationen:
 
 CMD Befehle zur revisionssicheren Dokumentenablage.
 
-- Download: https://github.com/git-for-windows/git/releases/download/v2.50.0.windows.2/PortableGit-2.50.0.2-64-bit.7z.exe
-- Version: v2.50.0
+- Download: https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.1/PortableGit-2.51.0-64-bit.7z.exe
+- Version: v2.51.0
 
 ### PLZ
 
